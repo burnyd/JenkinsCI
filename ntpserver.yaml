@@ -1,0 +1,17 @@
+---
+
+  - name: Configure NTP server on vEOS devices
+    hosts: veos
+    connection: local
+    gather_facts: no
+
+    tasks: 
+     - name: Configigure NTP
+       eos_template:
+         src: templates/ntpserver.j2
+         include_defaults: True
+         host: "{{ inventory_hostname }}"
+         password: password
+         username: eapi
+         authorize: yes
+         transport: cli

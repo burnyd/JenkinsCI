@@ -13,4 +13,7 @@ ntpstatusvalues = ntpstatus[0]['result'].values()
 
 for i in ntpstatusvalues:
     if i.find("unsynchronised") != -1:
-        print "It didnt work"	
+        print "It didnt work"
+        raise Exception("time did not sync")
+    else 
+        print "It did work"
